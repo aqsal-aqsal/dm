@@ -46,7 +46,7 @@
             <div class="mb-6 md:mb-0">
                 <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold mb-1">Khotib & Imam</p>
                 <?php if (!empty($data['jadwal_jumat'])): ?>
-                    <h4 class="text-2xl font-bold text-gray-800"><?= $data['jadwal_jumat']['khotib']; ?></h4>
+                    <h4 class="text-2xl font-bold text-gray-800"><?= $data['jadwal_jumat']['khatib']; ?></h4>
                     <p class="text-gray-600 mt-1 flex items-center">
                         <svg class="w-4 h-4 mr-2 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         <?= date('d F Y', strtotime($data['jadwal_jumat']['tanggal'])); ?>
