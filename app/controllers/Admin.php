@@ -10,6 +10,10 @@ class Admin extends Controller {
 
     public function index() {
         $data['judul'] = 'Dashboard Admin';
+        $data['saldo'] = $this->model('Kas_model')->getSaldo();
+        $data['agenda_count'] = count($this->model('Agenda_model')->getUpcomingAgenda());
+        $data['pengumuman_count'] = count($this->model('Pengumuman_model')->getActivePengumuman());
+        
         $this->view('admin/layouts/header', $data);
         $this->view('admin/dashboard', $data);
         $this->view('admin/layouts/footer');
