@@ -22,6 +22,6 @@ class Home extends Controller {
 
         $this->view('layouts/header', $data);
         $this->view('home/index', $data);
-        $this->view('layouts/footer');
+        $this->view('layouts/footer', $data);
     }
 }
