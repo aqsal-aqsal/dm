@@ -9,7 +9,7 @@ class Kas_model {
     }
 
     public function getAllKas() {
-        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY tanggal DESC, created_at DESC');
+        $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY tanggal DESC, id DESC');
         return $this->db->resultSet();
     }
 

@@ -40,14 +40,9 @@
 <!-- Navbar -->
 <nav class="absolute w-full z-50 transition-all duration-300 bg-gradient-to-b from-black/50 to-transparent">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-3 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-            </svg>
-            <div class="flex flex-col">
-                <span class="text-sm font-medium tracking-wider opacity-90">MASJID</span>
-                <span class="text-xl font-bold leading-none"><?= $data['profil']['nama_masjid'] ?? 'Darul Mu\'awanah'; ?></span>
-            </div>
+        <div class="flex items-center text-white">
+            <img src="<?= BASEURL; ?>/assets/images/dm-putih.png" alt="Logo Masjid" class="h-36 w-auto">
+            <span class="text-xl font-bold leading-none ml-3"><?= $data['profil']['nama_masjid'] ?? 'Darul Mu\'awanah'; ?></span>
         </div>
         
         <!-- Desktop Menu -->
