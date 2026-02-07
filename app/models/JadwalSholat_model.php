@@ -16,7 +16,76 @@ class JadwalSholat_model {
     public function getJadwalByDate($date) {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tanggal = :tanggal');
         $this->db->bind('tanggal', $date);
-        return $this->db->single();
+        $result = $this->db->single();
+
+        if (!$result) {
+            $time = strtotime($date);
+            $bulan = date('m', $time);
+            $tahun = date('Y', $time);
+            
+            if ($this->syncJadwal($bulan, $tahun)) {
+                $this->db->query('SELECT * FROM ' . $this->table . ' WHERE tanggal = :tanggal');
+                $this->db->bind('tanggal', $date);
+                $result = $this->db->single();
+            }
+        }
+        
+        return $result;
+    }
+
+    public function syncJadwal($bulan, $tahun) {
+        $url = 'https://equran.id/api/v2/shalat';
+        $data = [
+            'provinsi' => 'Jawa Barat',
+            'kabkota' => 'Kota Depok',
+            'bulan' => (int)$bulan,
+            'tahun' => (int)$tahun
+        ];
+
+        $options = [
+            'http' => [
+                'header'  => "Content-type: application/json\r\n",
+                'method'  => 'POST',
+                'content' => json_encode($data),
+                'ignore_errors' => true
+            ]
+        ];
+        
+        try {
+            $context  = stream_context_create($options);
+            $response = file_get_contents($url, false, $context);
+            
+            if ($response === FALSE) return false;
+
+            $json = json_decode($response, true);
+            if (isset($json['code']) && $json['code'] == 200 && isset($json['data']['jadwal'])) {
+                foreach ($json['data']['jadwal'] as $j) {
+                    // Cek apakah tanggal sudah ada
+                    $this->db->query('SELECT id FROM ' . $this->table . ' WHERE tanggal = :tanggal');
+                    $this->db->bind('tanggal', $j['tanggal_lengkap']);
+                    
+                    if (!$this->db->single()) {
+                        $query = "INSERT INTO " . $this->table . " 
+                            (tanggal, subuh, dzuhur, ashar, maghrib, isya)
+                            VALUES
+                            (:tanggal, :subuh, :dzuhur, :ashar, :maghrib, :isya)";
+                        $this->db->query($query);
+                        $this->db->bind('tanggal', $j['tanggal_lengkap']);
+                        $this->db->bind('subuh', $j['subuh']);
+                        $this->db->bind('dzuhur', $j['dzuhur']);
+                        $this->db->bind('ashar', $j['ashar']);
+                        $this->db->bind('maghrib', $j['maghrib']);
+                        $this->db->bind('isya', $j['isya']);
+                        
+                        $this->db->execute();
+                    }
+                }
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+        return false;
     }
 
     public function getJadwalById($id) {

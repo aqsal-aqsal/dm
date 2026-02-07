@@ -40,7 +40,7 @@
                                         <?= $k['keterangan']; ?>
                                     </td>
                                     <td class="p-4 text-center">
-                                        <?php if ($k['jenis'] == 'masuk'): ?>
+                                        <?php if (strtolower($k['jenis']) == 'masuk'): ?>
                                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
                                                 Pemasukan
                                             </span>
@@ -50,8 +50,8 @@
                                             </span>
                                         <?php endif; ?>
                                     </td>
-                                    <td class="p-4 text-right font-bold <?= $k['jenis'] == 'masuk' ? 'text-emerald-600' : 'text-red-600'; ?>">
-                                        <?= $k['jenis'] == 'masuk' ? '+' : '-'; ?> Rp <?= number_format($k['nominal'], 0, ',', '.'); ?>
+                                    <td class="p-4 text-right font-bold <?= strtolower($k['jenis']) == 'masuk' ? 'text-emerald-600' : 'text-red-600'; ?>">
+                                        <?= strtolower($k['jenis']) == 'masuk' ? '+' : '-'; ?> Rp <?= number_format($k['nominal'], 0, ',', '.'); ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

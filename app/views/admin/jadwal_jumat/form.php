@@ -11,6 +11,11 @@
                     <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
                     <input type="date" name="tanggal" value="<?= $data['jadwal']['tanggal'] ?? ''; ?>" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                 </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Jam Sholat</label>
+                    <input type="time" name="waktu" value="<?= $data['jadwal']['waktu'] ?? '11:45'; ?>" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                </div>
                 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Khatib</label>

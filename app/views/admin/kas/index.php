@@ -71,7 +71,7 @@
                             <?= $row['keterangan']; ?>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-center">
-                            <?php if($row['jenis'] == 'masuk'): ?>
+                            <?php if(strtolower($row['jenis']) == 'masuk'): ?>
                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
                                     <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-emerald-400" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3" /></svg>
                                     Masuk
@@ -83,8 +83,8 @@
                                 </span>
                             <?php endif; ?>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-right font-medium <?= $row['jenis'] == 'masuk' ? 'text-emerald-600' : 'text-red-600'; ?>">
-                            <?= $row['jenis'] == 'masuk' ? '+' : '-'; ?> Rp <?= number_format($row['nominal'], 0, ',', '.'); ?>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-right font-medium <?= strtolower($row['jenis']) == 'masuk' ? 'text-emerald-600' : 'text-red-600'; ?>">
+                            <?= strtolower($row['jenis']) == 'masuk' ? '+' : '-'; ?> Rp <?= number_format($row['nominal'], 0, ',', '.'); ?>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex justify-end space-x-2">

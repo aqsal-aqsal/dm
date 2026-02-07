@@ -30,15 +30,16 @@ class Kas_model {
 
     public function tambahKas($data) {
         $query = "INSERT INTO " . $this->table . " 
-                    (tanggal, keterangan, jenis, nominal)
+                    (tanggal, keterangan, jenis, nominal, jumlah)
                   VALUES
-                    (:tanggal, :keterangan, :jenis, :nominal)";
+                    (:tanggal, :keterangan, :jenis, :nominal, :jumlah)";
         
         $this->db->query($query);
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('keterangan', $data['keterangan']);
         $this->db->bind('jenis', $data['jenis']);
         $this->db->bind('nominal', $data['nominal']);
+        $this->db->bind('jumlah', $data['nominal']); // Bind nominal to jumlah (legacy support)
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -49,7 +50,8 @@ class Kas_model {
                     tanggal = :tanggal,
                     keterangan = :keterangan,
                     jenis = :jenis,
-                    nominal = :nominal
+                    nominal = :nominal,
+                    jumlah = :jumlah
                   WHERE id = :id";
         
         $this->db->query($query);
@@ -57,6 +59,7 @@ class Kas_model {
         $this->db->bind('keterangan', $data['keterangan']);
         $this->db->bind('jenis', $data['jenis']);
         $this->db->bind('nominal', $data['nominal']);
+        $this->db->bind('jumlah', $data['nominal']); // Bind nominal to jumlah
         $this->db->bind('id', $data['id']);
 
         $this->db->execute();

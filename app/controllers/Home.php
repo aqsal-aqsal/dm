@@ -39,20 +39,20 @@ class Home extends Controller {
     public function jadwal_jumat() {
         $data['judul'] = 'Jadwal Sholat Jumat';
         $data['profil'] = $this->model('Profil_model')->getProfil();
-        $data['jadwal'] = $this->model('JadwalJumat_model')->getAllJadwal();
+        $data['jadwal'] = $this->model('JadwalJumat_model')->getUpcomingJadwals();
+        $data['pengumuman'] = $this->model('Pengumuman_model')->getActivePengumuman();
 
-        $this->view('layouts/header', $data);
+        // Menggunakan view standalone untuk tampilan Digital Signage
         $this->view('home/jadwal_jumat', $data);
-        $this->view('layouts/footer', $data);
     }
 
     public function jadwal_sholat() {
         $data['judul'] = 'Waktu Sholat';
         $data['profil'] = $this->model('Profil_model')->getProfil();
-        $data['jadwal'] = $this->model('JadwalSholat_model')->getAllJadwal();
+        $data['jadwal'] = $this->model('JadwalSholat_model')->getJadwalByDate(date('Y-m-d'));
+        $data['pengumuman'] = $this->model('Pengumuman_model')->getActivePengumuman();
 
-        $this->view('layouts/header', $data);
+        // Menggunakan view standalone untuk tampilan Digital Signage
         $this->view('home/jadwal_sholat', $data);
-        $this->view('layouts/footer', $data);
     }
 }
