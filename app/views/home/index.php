@@ -63,6 +63,53 @@
     </div>
 </div>
 
+<!-- Jadwal Sholat 5 Waktu -->
+<section id="jadwal" class="py-12 bg-white border-b border-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800">Jadwal Sholat Hari Ini</h2>
+            <p class="text-emerald-600 mt-2 font-medium"><?= date('d F Y'); ?></p>
+        </div>
+        
+        <?php if(isset($data['jadwal_sholat']) && $data['jadwal_sholat']): ?>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            <!-- Subuh -->
+            <div class="bg-emerald-50 rounded-xl p-6 text-center border border-emerald-100 hover:shadow-md transition">
+                <p class="text-gray-500 font-medium mb-2 uppercase text-xs tracking-wider">Subuh</p>
+                <p class="text-2xl font-bold text-emerald-700"><?= date('H:i', strtotime($data['jadwal_sholat']['subuh'])); ?></p>
+            </div>
+            <!-- Dzuhur -->
+            <div class="bg-emerald-50 rounded-xl p-6 text-center border border-emerald-100 hover:shadow-md transition">
+                <p class="text-gray-500 font-medium mb-2 uppercase text-xs tracking-wider">Dzuhur</p>
+                <p class="text-2xl font-bold text-emerald-700"><?= date('H:i', strtotime($data['jadwal_sholat']['dzuhur'])); ?></p>
+            </div>
+            <!-- Ashar -->
+            <div class="bg-emerald-50 rounded-xl p-6 text-center border border-emerald-100 hover:shadow-md transition">
+                <p class="text-gray-500 font-medium mb-2 uppercase text-xs tracking-wider">Ashar</p>
+                <p class="text-2xl font-bold text-emerald-700"><?= date('H:i', strtotime($data['jadwal_sholat']['ashar'])); ?></p>
+            </div>
+            <!-- Maghrib -->
+            <div class="bg-emerald-50 rounded-xl p-6 text-center border border-emerald-100 hover:shadow-md transition">
+                <p class="text-gray-500 font-medium mb-2 uppercase text-xs tracking-wider">Maghrib</p>
+                <p class="text-2xl font-bold text-emerald-700"><?= date('H:i', strtotime($data['jadwal_sholat']['maghrib'])); ?></p>
+            </div>
+            <!-- Isya -->
+            <div class="bg-emerald-50 rounded-xl p-6 text-center border border-emerald-100 hover:shadow-md transition">
+                <p class="text-gray-500 font-medium mb-2 uppercase text-xs tracking-wider">Isya</p>
+                <p class="text-2xl font-bold text-emerald-700"><?= date('H:i', strtotime($data['jadwal_sholat']['isya'])); ?></p>
+            </div>
+        </div>
+        <?php else: ?>
+            <div class="text-center py-8 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                <svg class="w-12 h-12 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-gray-500">Jadwal sholat untuk tanggal ini belum tersedia.</p>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+
 <!-- Layanan Section -->
 <section id="layanan" class="py-16 bg-gray-50">
     <div class="container mx-auto px-6 text-center">
