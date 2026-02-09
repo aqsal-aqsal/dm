@@ -89,10 +89,9 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Tambah Jadwal Jumat';
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/jadwal_jumat/form', $data);
-        $this->view('admin/layouts/footer');
+        // Redirect to index if accessed via GET (since we use modal now)
+        header('Location: ' . BASEURL . '/admin/jadwal_jumat');
+        exit;
     }
 
     public function jadwal_jumat_edit($id) {
@@ -106,11 +105,9 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Edit Jadwal Jumat';
-        $data['jadwal'] = $this->model('JadwalJumat_model')->getJadwalById($id);
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/jadwal_jumat/form', $data);
-        $this->view('admin/layouts/footer');
+        // Redirect to index if accessed via GET (since we use modal now)
+        header('Location: ' . BASEURL . '/admin/jadwal_jumat');
+        exit;
     }
 
     public function jadwal_jumat_delete($id) {
