@@ -6,7 +6,7 @@
 <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden max-w-3xl">
     <div class="p-6">
         <form action="" method="POST">
-            <input type="hidden" name="id" value="<?= $data['profil']['id']; ?>">
+            <input type="hidden" name="id" value="<?= $data['profil']['id'] ?? ''; ?>">
             
             <div class="space-y-6">
                 <div>
@@ -17,7 +17,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                         </div>
-                        <input type="text" name="nama" value="<?= htmlspecialchars($data['profil']['nama']); ?>" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                        <input type="text" name="nama" value="<?= htmlspecialchars($data['profil']['nama'] ?? ''); ?>" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </div>
-                        <input type="text" name="kontak" value="<?= htmlspecialchars($data['profil']['kontak']); ?>" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5">
+                        <input type="text" name="kontak" value="<?= htmlspecialchars($data['profil']['kontak'] ?? ''); ?>" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5">
                     </div>
                 </div>
 
@@ -42,13 +42,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <textarea name="alamat" rows="3" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required><?= htmlspecialchars($data['profil']['alamat']); ?></textarea>
+                        <textarea name="alamat" rows="3" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required><?= htmlspecialchars($data['profil']['alamat'] ?? ''); ?></textarea>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat</label>
-                    <textarea name="deskripsi" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2"><?= $data['profil']['deskripsi']; ?></textarea>
+                    <textarea name="deskripsi" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2"><?= htmlspecialchars($data['profil']['deskripsi'] ?? ''); ?></textarea>
                     <p class="mt-1 text-sm text-gray-500">Deskripsi ini akan muncul di halaman utama website.</p>
                 </div>
             </div>
