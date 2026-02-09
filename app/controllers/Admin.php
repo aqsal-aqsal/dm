@@ -28,18 +28,25 @@ class Admin extends Controller {
         $this->view('admin/layouts/footer');
     }
 
-    public function jadwal_sholat_add() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if ($this->model('JadwalSholat_model')->tambahJadwal($_POST) > 0) {
-                header('Location: ' . BASEURL . '/admin/jadwal_sholat');
-                exit;
-            }
-        }
-        $data['judul'] = 'Tambah Jadwal Sholat';
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/jadwal_sholat/form', $data);
-        $this->view('admin/layouts/footer');
+    public function jadwal_sholat_sync() {
+        // Sync for current month
+        $this->model('JadwalSholat_model')->syncJadwal(date('m'), date('Y'));
+        
+        // Sync for next month as well (to be safe)
+        $nextMonth = strtotime('+1 month');
+        $this->model('JadwalSholat_model')->syncJadwal(date('m', $nextMonth), date('Y', $nextMonth));
+
+        header('Location: ' . BASEURL . '/admin/jadwal_sholat');
+        exit;
     }
+
+    /* 
+    public function jadwal_sholat_add() {
+        // Disabled manually
+        header('Location: ' . BASEURL . '/admin/jadwal_sholat');
+        exit;
+    }
+    */
 
     public function jadwal_sholat_edit($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

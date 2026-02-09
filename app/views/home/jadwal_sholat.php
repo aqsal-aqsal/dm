@@ -220,10 +220,18 @@
     </footer>
 
     <script>
+        // Store the initial date to check for day changes
+        let lastDate = new Date().getDate();
+
         // Update Clock and Date
         function updateTime() {
             const now = new Date();
             
+            // Check if date has changed (midnight), reload page to get new schedule
+            if (now.getDate() !== lastDate) {
+                window.location.reload();
+            }
+
             // Analog Clock
             const seconds = now.getSeconds();
             const minutes = now.getMinutes();

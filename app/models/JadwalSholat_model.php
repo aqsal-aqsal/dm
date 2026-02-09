@@ -36,8 +36,8 @@ class JadwalSholat_model {
     public function syncJadwal($bulan, $tahun) {
         $url = 'https://equran.id/api/v2/shalat';
         $data = [
-            'provinsi' => 'Jawa Barat',
-            'kabkota' => 'Kota Depok',
+            'provinsi' => 'Kalimantan Tengah',
+            'kabkota' => 'Kab. Kapuas',
             'bulan' => (int)$bulan,
             'tahun' => (int)$tahun
         ];
