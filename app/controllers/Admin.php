@@ -133,10 +133,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Tambah Pengumuman';
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/pengumuman/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/pengumuman');
+        exit;
     }
 
     public function pengumuman_edit($id) {
@@ -150,11 +148,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Edit Pengumuman';
-        $data['pengumuman'] = $this->model('Pengumuman_model')->getPengumumanById($id);
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/pengumuman/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/pengumuman');
+        exit;
     }
 
     public function pengumuman_delete($id) {
