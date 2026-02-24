@@ -175,10 +175,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Tambah Agenda';
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/agenda/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/agenda');
+        exit;
     }
 
     public function agenda_edit($id) {
@@ -192,11 +190,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Edit Agenda';
-        $data['agenda'] = $this->model('Agenda_model')->getAgendaById($id);
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/agenda/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/agenda');
+        exit;
     }
 
     public function agenda_delete($id) {
@@ -223,10 +218,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Tambah Transaksi Kas';
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/kas/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/kas');
+        exit;
     }
 
     public function kas_edit($id) {
@@ -240,11 +233,8 @@ class Admin extends Controller {
                 exit;
             }
         }
-        $data['judul'] = 'Edit Transaksi Kas';
-        $data['kas'] = $this->model('Kas_model')->getKasById($id);
-        $this->view('admin/layouts/header', $data);
-        $this->view('admin/kas/form', $data);
-        $this->view('admin/layouts/footer');
+        header('Location: ' . BASEURL . '/admin/kas');
+        exit;
     }
 
     public function kas_delete($id) {
