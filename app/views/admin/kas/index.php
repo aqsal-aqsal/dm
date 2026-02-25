@@ -40,12 +40,12 @@
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
-                            <input type="date" name="tanggal" id="kas_modal_tanggal" value="<?= date('Y-m-d'); ?>" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                            <input type="date" name="tanggal" id="kas_modal_tanggal" value="<?= date('Y-m-d'); ?>" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Transaksi</label>
-                            <select name="jenis" id="kas_modal_jenis" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                            <select name="jenis" id="kas_modal_jenis" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                                 <option value="masuk">Pemasukan (Uang Masuk)</option>
                                 <option value="keluar">Pengeluaran (Uang Keluar)</option>
                             </select>
@@ -57,13 +57,13 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span class="text-gray-500 sm:text-sm">Rp</span>
                                 </div>
-                                <input type="number" name="nominal" id="kas_modal_nominal" class="pl-10 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                                <input type="number" name="nominal" id="kas_modal_nominal" class="pl-10 block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Keterangan</label>
-                            <textarea name="keterangan" id="kas_modal_keterangan" rows="3" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required></textarea>
+                            <textarea name="keterangan" id="kas_modal_keterangan" rows="3" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <input type="text" class="pl-10 block w-full rounded-lg border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari transaksi...">
+            <input type="text" class="pl-10 block w-full border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari transaksi...">
         </div>
         <div class="flex space-x-2 w-full sm:w-auto">
             <button class="bg-white border border-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 flex items-center w-full sm:w-auto justify-center">
@@ -181,9 +181,6 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-4">
-                        <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                    </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Keterangan</th>
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Jenis</th>
@@ -194,16 +191,13 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 <?php if(empty($data['kas'])): ?>
                 <tr>
-                    <td colspan="6" class="px-6 py-10 text-center text-gray-500 text-sm">
-                        Belum ada data transaksi kas.
+                    <td colspan="5" class="px-6 py-10 text-center text-gray-500 text-sm">
+                        Belum ada transaksi kas.
                     </td>
                 </tr>
                 <?php else: ?>
                     <?php foreach($data['kas'] as $row): ?>
                     <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                        </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             <?= date('d M Y', strtotime($row['tanggal'])); ?>
                         </td>

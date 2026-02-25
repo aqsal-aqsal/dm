@@ -35,24 +35,24 @@
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Nama Kegiatan</label>
-                            <input type="text" name="nama_kegiatan" id="agenda_modal_nama" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                            <input type="text" name="nama_kegiatan" id="agenda_modal_nama" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
-                                <input type="date" name="tanggal" id="agenda_modal_tanggal" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                                <input type="date" name="tanggal" id="agenda_modal_tanggal" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Waktu</label>
-                                <input type="text" name="waktu" id="agenda_modal_waktu" placeholder="08:00 - Selesai" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                                <input type="text" name="waktu" id="agenda_modal_waktu" placeholder="08:00 - Selesai" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
-                            <textarea name="deskripsi" id="agenda_modal_deskripsi" rows="3" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2"></textarea>
+                            <textarea name="deskripsi" id="agenda_modal_deskripsi" rows="3" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2"></textarea>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <input type="text" class="pl-10 block w-full rounded-lg border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari agenda...">
+            <input type="text" class="pl-10 block w-full border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari agenda...">
         </div>
     </div>
 
@@ -159,9 +159,6 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-4">
-                        <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                    </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal & Waktu</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Kegiatan</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deskripsi</th>
@@ -171,16 +168,13 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 <?php if(empty($data['agenda'])): ?>
                 <tr>
-                    <td colspan="5" class="px-6 py-10 text-center text-gray-500 text-sm">
+                    <td colspan="4" class="px-6 py-10 text-center text-gray-500 text-sm">
                         Belum ada agenda kegiatan.
                     </td>
                 </tr>
                 <?php else: ?>
                     <?php foreach($data['agenda'] as $row): ?>
                     <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                        </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm font-medium text-gray-900"><?= date('d M Y', strtotime($row['tanggal'])); ?></div>
                             <div class="text-sm text-gray-500"><?= $row['waktu']; ?> WIB</div>

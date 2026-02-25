@@ -35,13 +35,13 @@
     <form action="<?= BASEURL; ?>/login/process" method="POST">
         <div class="mb-5">
             <label class="block text-gray-700 text-sm font-medium mb-2" for="username">Username</label>
-            <input class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition duration-200 text-gray-700 placeholder-gray-400" 
+            <input class="w-full px-4 py-3 border border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition duration-200 text-gray-700 placeholder-gray-400" 
                    id="username" name="username" type="text" placeholder="Masukkan username" required>
         </div>
         
         <div class="mb-8">
             <label class="block text-gray-700 text-sm font-medium mb-2" for="password">Password</label>
-            <input class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition duration-200 text-gray-700 placeholder-gray-400" 
+            <input class="w-full px-4 py-3 border border-gray-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition duration-200 text-gray-700 placeholder-gray-400" 
                    id="password" name="password" type="password" placeholder="••••••••" required>
         </div>
 

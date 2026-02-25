@@ -35,16 +35,16 @@
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Judul</label>
-                            <input type="text" name="judul" id="pengumuman_modal_judul" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
+                            <input type="text" name="judul" id="pengumuman_modal_judul" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2.5" required>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Isi Pengumuman</label>
-                            <textarea name="isi" id="pengumuman_modal_isi" rows="4" class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required></textarea>
+                            <textarea name="isi" id="pengumuman_modal_isi" rows="4" class="block w-full border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm py-2" required></textarea>
                         </div>
 
                         <div class="flex items-center">
-                            <input id="pengumuman_modal_is_penting" type="checkbox" name="is_penting" value="1" class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded">
+                            <input id="pengumuman_modal_is_penting" type="checkbox" name="is_penting" value="1" class="h-4 w-4 text-emerald-600 focus:ring-emerald-500 border-gray-300">
                             <label for="pengumuman_modal_is_penting" class="ml-2 block text-sm text-gray-900">
                                 Tandai sebagai Penting
                             </label>
@@ -145,7 +145,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <input type="text" class="pl-10 block w-full rounded-lg border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari pengumuman...">
+            <input type="text" class="pl-10 block w-full border-gray-300 sm:text-sm focus:ring-emerald-500 focus:border-emerald-500 py-2" placeholder="Cari pengumuman...">
         </div>
     </div>
 
@@ -153,9 +153,6 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-4">
-                        <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                    </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Isi</th>
                     <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -166,16 +163,13 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 <?php if(empty($data['pengumuman'])): ?>
                 <tr>
-                    <td colspan="6" class="px-6 py-10 text-center text-gray-500 text-sm">
+                    <td colspan="5" class="px-6 py-10 text-center text-gray-500 text-sm">
                         Belum ada pengumuman.
                     </td>
                 </tr>
                 <?php else: ?>
                     <?php foreach($data['pengumuman'] as $row): ?>
                     <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <input type="checkbox" class="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500">
-                        </td>
                         <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
                             <?= $row['judul']; ?>
                         </td>
