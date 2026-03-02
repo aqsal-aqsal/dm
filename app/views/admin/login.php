@@ -6,6 +6,7 @@
     <title>Login Admin</title>
     <link rel="shortcut icon" href="<?= BASEURL; ?>/assets/images/dm-hijau.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -18,15 +19,11 @@
 <body class="bg-gray-50 bg-pattern h-screen flex items-center justify-center p-4">
 
 <div class="bg-white p-10 rounded-2xl shadow-xl w-full max-w-[400px] border border-gray-100">
-    <!-- Logo -->
-    <div class="flex justify-center mb-0">
-        <div class="w-auto h-auto flex items-center justify-center">
-             <img src="<?= BASEURL; ?>/assets/images/dm-hijau.png" alt="Logo Masjid" class="h-48 w-auto">
-        </div>
-    </div>
+    <!-- Lottie Animation -->
+    <div id="lottie-login" class="w-full h-48 mb-4"></div>
 
     <!-- Header Text -->
-    <div class="text-center mb-6 -mt-6">
+    <div class="text-center mb-6">
         <h2 class="text-2xl font-bold text-gray-900">Masuk ke Akun</h2>
         <p class="text-gray-500 text-sm mt-2">Selamat datang kembali! Silakan masukkan detail Anda.</p>
     </div>
@@ -56,6 +53,18 @@
         </p>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-login'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: <?= file_get_contents('assets/json/welcome.json'); ?>
+        });
+    });
+</script>
 
 </body>
 </html>

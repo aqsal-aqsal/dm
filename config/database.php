@@ -7,4 +7,8 @@ define('DB_PASS', '');
 define('DB_NAME', 'dm');
 
 // App Configuration
-define('BASEURL', 'http://localhost/dm/public');
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+$script = $_SERVER['SCRIPT_NAME'];
+$base = str_replace('/index.php', '', $script);
+define('BASEURL', $protocol . "://" . $host . $base);

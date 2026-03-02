@@ -22,6 +22,7 @@ class Login extends Controller {
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['welcome_animation'] = true;
                 header('Location: ' . BASEURL . '/admin');
                 exit;
             } else {

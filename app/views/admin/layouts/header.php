@@ -6,6 +6,7 @@
     <title><?= $data['judul']; ?> - Admin Panel</title>
     <link rel="shortcut icon" href="<?= BASEURL; ?>/assets/images/dm-hijau.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -17,9 +18,29 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Welcome animation overlay */
+        #lottie-welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
+
+<!-- Welcome Animation Overlay -->
+<div id="lottie-welcome-overlay">
+    <div id="lottie-container" style="width: 300px; height: 300px;"></div>
+    <h2 class="text-2xl font-bold text-emerald-700 mt-4 animate-bounce">Selamat Datang, <?= $_SESSION['username'] ?? 'Admin'; ?>!</h2>
+</div>
 
 <div class="flex h-screen overflow-hidden">
     <!-- Sidebar -->

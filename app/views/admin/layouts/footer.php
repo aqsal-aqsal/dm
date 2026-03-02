@@ -22,5 +22,45 @@
     }
 </script>
 
+<?php if (isset($_SESSION['welcome_animation'])): ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('lottie-welcome-overlay');
+         if (overlay) {
+             overlay.style.display = 'flex';
+             
+             const animation = lottie.loadAnimation({
+                 container: document.getElementById('lottie-container'),
+                 renderer: 'svg',
+                 loop: true,
+                 autoplay: true,
+                 animationData: <?= file_get_contents('assets/json/welcome.json'); ?>
+              });
+
+             // Fallback: hide overlay if animation fails or takes too long
+             const fallbackTimeout = setTimeout(() => {
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+            }, 5000);
+
+            animation.addEventListener('complete', function() {
+                clearTimeout(fallbackTimeout);
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                    overlay.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            });
+        }
+    });
+</script>
+<?php unset($_SESSION['welcome_animation']); ?>
+<?php endif; ?>
+
 </body>
 </html>
